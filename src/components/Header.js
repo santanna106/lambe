@@ -10,30 +10,31 @@ import { AppLoading } from 'expo';
 import icon from '../../assets/imgs/icon.png'
 import * as Font from 'expo-font';
 
-let customFonts = {
+
+
+  let customFonts = {
     'Shelter': require('../../assets/fonts/shelter.otf')
   };
+  
+
 
 export default class Header extends Component {
     state = {
         fontsLoaded: false,
       };
 
-      async _loadFontsAsync() {
-        await Font.loadAsync(customFonts);
-        this.setState({ fontsLoaded: true });
-      }
-    
-      componentDidMount() {
-        this._loadFontsAsync();
-      }
     
 
-    
+  async _loadFontsAsync() {
+    await Font.loadAsync(customFonts);
+    this.setState({ fontsLoaded: true });
+  }
 
+  componentDidMount() {
+    this._loadFontsAsync();
+  }
+    
     render() {
-
-      
         if (this.state.fontsLoaded) {
             return (
             
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     },
     tilte: {
         color: '#000',
-        fontFamily: 'Shelter',
+        //fontFamily: 'Shelter',
         fontSize: 28
     }
 })
