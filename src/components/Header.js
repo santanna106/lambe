@@ -4,30 +4,51 @@ import {
     Text,
     View,
     Platform,
-    Image
+    Image,ActivityIndicator
 } from 'react-native'
 
 import icon from '../../assets/imgs/icon.png'
-
-
-
-
+import * as Font from 'expo-font';
 
 
 export default class Header extends Component {
+    constructor(props){
+        super(props)
+        
+        
+    }
+
+    state = {
+        fontsLoaded: false,
+      };
     
+
+    async componentDidMount () {
+       await Font.loadAsync({
+           'DancingScript-Bold': require('../../assets/fonts/DancingScript-Bold.ttf')
+       });
+       this.setState({ fontsLoaded: true });
+
+    }
+    
+
     render() {
-       
+        if (this.state.fontsLoaded) {
             return (
             
-                    <View style={styles.container}>
-                        <View style={styles.rowContainer}>
-                            <Image source={icon} style={styles.image} />
-                            <Text style={styles.tilte}>Lambe Lambe</Text>
-                        </View>
+                <View style={styles.container}>
+                    <View style={styles.rowContainer}>
+                        <Image source={icon} style={styles.image} />
+                        <Text style={styles.tilte}>Lambe Lambe</Text>
                     </View>
-                
+                </View>
+            
             )
+        } else {
+            return <ActivityIndicator size="large" />;
+        }
+           
+        
        
     }
 }
@@ -50,7 +71,7 @@ const styles = StyleSheet.create({
     },
     tilte: {
         color: '#000',
-        fontFamily: 'Shelter',
+        fontFamily: 'DancingScript-Bold',
         fontSize: 28
     }
 })

@@ -43,7 +43,7 @@ s
             commentArea = ( 
                 <TWF onPress={() => this.setState({editMode: true})}>
                     <View style={styles.container}>
-                        <FontAwesome name="camera" size={23} color="#FFF" />
+                       
                         <Text style={styles.caption}>
                             Adicione um comentário...
                         </Text>

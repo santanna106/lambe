@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {StyleSheet,View,Image,Dimensions, Alert} from 'react-native'
+import {StyleSheet,View,Image,Dimensions, Alert, TouchableHighlightBase} from 'react-native'
 import Autor from './Autor'
 import Comments from './Comments'
 import AddComment from './AddComment'
@@ -10,7 +10,7 @@ export default class Post extends Component {
         return (
             <View style={StyleSheet.container}>
                 <Image source={this.props.image} style={styles.image} />
-                <Autor email='fulandodetal@gmail.com' nickname='fulano' />
+                <Autor email={this.props.email} nickname={this.props.nickname} />
                 <Comments comments={this.props.comments} />
                 <AddComment />
             </View>
