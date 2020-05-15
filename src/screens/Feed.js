@@ -31,10 +31,7 @@ export default class Feed extends Component {
             image: require('../../assets/imgs/bw.jpg'),
             comments:[{
                 nickname: 'John Ray Sheldon',
-                comment: 'Stunning'
-            },{
-                nickname: 'Ana Julia Arruda',
-                comment: 'Foto linda! Onde foi tirada?'
+                comment: []
             }]
             
         }]
@@ -50,13 +47,12 @@ export default class Feed extends Component {
                     <Header/>
                     <FlatList 
                         data={this.state.posts}
-                        keyExtractor={({item}) => 
-                            <Post key={item.id} {...item}/>} />
+                        keyExtractor={item => `${item.id}`}
+                        renderItem={({item}) => 
+                            <Post key={item.id} {...item} />} />
                 </View>
             )
             
-        
-       
     }
 }
 

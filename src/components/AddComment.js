@@ -20,7 +20,7 @@ export default class AddComment extends Component {
     handleAddComment = () => {
         Alert.alert('Adicionado!',this.stage.comment)
     }
-s
+
     render() {
         let comentArea = null
 
@@ -35,7 +35,7 @@ s
                                 onSubmitEditing={this.handleAddComment} />
                     
                     <TWF onPress={() => this.setState({editMode: false })}>
-                        <Icon name="times" size={15} color='#555' />
+                        <FontAwesome name="times" size={15} color='#555' />
                     </TWF>
                 </View>
             )
@@ -43,7 +43,7 @@ s
             commentArea = ( 
                 <TWF onPress={() => this.setState({editMode: true})}>
                     <View style={styles.container}>
-                       
+                       <FontAwesome name='comment-o' size={25} color="#555" />
                         <Text style={styles.caption}>
                             Adicione um comentário...
                         </Text>

@@ -32,8 +32,6 @@ export default class Comments extends Component {
                 
             })
             
-
-            console.warn(view[0])
         }
         return (
                 <View style={styles.container}>
